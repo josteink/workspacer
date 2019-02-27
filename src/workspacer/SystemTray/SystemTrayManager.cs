@@ -17,7 +17,6 @@ namespace workspacer
         {
             _icon = new NotifyIcon();
             _strip = _icon.ContextMenuStrip = new ContextMenuStrip();
-            _icon.Icon = Properties.Resources.logo;
             _icon.Visible = true;
         }
 

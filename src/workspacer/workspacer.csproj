@@ -1,4 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project>
+
+  <Import Sdk="Microsoft.NET.Sdk.WindowsDesktop" Project="Sdk.props" />
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -6,6 +8,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
+
+  <Import Sdk="Microsoft.NET.Sdk.WindowsDesktop" Project="Sdk.targets" />
 
   <PropertyGroup>
     <PostBuildEvent>
@@ -22,6 +26,10 @@
       copy /b/y/v "$(SolutionDir)\src\workspacer.Watcher\$(OutDir)workspacer.Watcher.pdb" "$(TargetDir)"
     </PostBuildEvent>
   </PropertyGroup> 
+
+  <ItemGroup>
+    <EmbeddedResource Include="Config\workspacer.config.template.csx" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autoupdater.NET.Official">
